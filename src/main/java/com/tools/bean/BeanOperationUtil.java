@@ -30,6 +30,7 @@ public class BeanOperationUtil {
             if (descriptor.getWriteMethod() != null) {
                 Object originalValue = descriptor.getReadMethod()
                         .invoke(target);
+                //only use destination's value when target value is null
                 if (originalValue == null) {
                     Object defaultValue = descriptor.getReadMethod().invoke(
                             destination);
