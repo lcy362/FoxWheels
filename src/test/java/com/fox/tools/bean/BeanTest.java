@@ -1,4 +1,4 @@
-package com.tools.bean;
+package com.fox.tools.bean;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class BeanTest {
         t1.setId("12");
         t2.setName("x");
         t2.setScore("96");
-        BeanOperationUtil.merge(t1, t2);
+        BeanOperationUtils.merge(t1, t2);
         Assert.assertEquals(t1.getId(), "12");
         Assert.assertEquals(t1.getName(), "x");
         Assert.assertEquals(t1.getScore(), "96");

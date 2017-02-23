@@ -1,4 +1,4 @@
-package com.tools.bean;
+package com.fox.tools.bean;
 
 /**
  * Created by lcy on 2017/2/17.

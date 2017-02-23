@@ -1,6 +1,6 @@
-package com.tools.calculation;
+package com.fox.tools.calculation;
 
-import com.tools.bean.com.tools.calculation.GeoUtils;
+import com.fox.tools.calculation.GeoUtils;
 import org.junit.Test;
 
 /**

@@ -1,4 +1,4 @@
-package com.tools.bean.com.tools.calculation;
+package com.fox.tools.calculation;
 
 /**
  * Created by lcy on 2017/2/17.

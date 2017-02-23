@@ -1,4 +1,4 @@
-package com.tools.bean;
+package com.fox.tools.bean;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -9,7 +9,7 @@ import java.beans.PropertyDescriptor;
 /**
  * Created by lcy on 2017/2/17.
  */
-public class BeanOperationUtil {
+public class BeanOperationUtils {
     /**
      * merge not null attributes of two objects with the same type
      * use value in target when both objects has value
