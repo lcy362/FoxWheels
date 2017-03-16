@@ -52,7 +52,16 @@ public class CollectionTools {
         return equator;
     }
 
-    public <T> List<Collection<T>> findCollectionDifference(final Collection<T> l1, final Collection<T> l2, final String... exludedFields) {
+    /**
+     *
+     * @param l1
+     * @param l2
+     * @param exludedFields fields that don't consider
+     * @param <T>
+     * @return list[0]: elements in l1 not in l2
+     *          list[1]: elements in l2 not in l1
+     */
+    public static <T> List<Collection<T>> findCollectionDifference(final Collection<T> l1, final Collection<T> l2, final String... exludedFields) {
         Equator<T> equator = generateEquator(exludedFields);
         Collection<T> l1More = CollectionUtils.removeAll(l1, l2, equator);
         Collection<T> l2More = CollectionUtils.removeAll(l2, l1, equator);
