@@ -20,7 +20,7 @@ public class CollectionTools {
      * @param <T>
      * @return
      */
-    public static <T> boolean isEqualCollection(Collection<T> l1, Collection<T> l2) {
+    public static <T> boolean isEqualCollection(Collection<T> l1, Collection<T> l2, final String... exludedFields) {
         Equator<T> equator = new Equator<T>() {
             @Override
             public boolean equate(T o1, T o2) {
@@ -33,12 +33,12 @@ public class CollectionTools {
                 if (o1.getClass() != o2.getClass()) {
                     return false;
                 }
-                return EqualsBuilder.reflectionEquals(o1, o2);
+                return EqualsBuilder.reflectionEquals(o1, o2, exludedFields);
             }
 
             @Override
             public int hash(T o) {
-                return HashCodeBuilder.reflectionHashCode(o);
+                return HashCodeBuilder.reflectionHashCode(o, exludedFields);
             }
         };
         return CollectionUtils.isEqualCollection(l1, l2, equator);
