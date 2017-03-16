@@ -5,7 +5,9 @@ import org.apache.commons.collections4.Equator;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by lcy on 2017/3/9.
@@ -48,5 +50,15 @@ public class CollectionTools {
             }
         };
         return equator;
+    }
+
+    public <T> List<Collection<T>> findCollectionDifference(final Collection<T> l1, final Collection<T> l2, final String... exludedFields) {
+        Equator<T> equator = generateEquator(exludedFields);
+        Collection<T> l1More = CollectionUtils.removeAll(l1, l2, equator);
+        Collection<T> l2More = CollectionUtils.removeAll(l2, l1, equator);
+        List<Collection<T>> diff = new ArrayList<Collection<T>>();
+        diff.add(l1More);
+        diff.add(l2More);
+        return diff;
     }
 }
