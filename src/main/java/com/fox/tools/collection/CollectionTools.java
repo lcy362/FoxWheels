@@ -2,8 +2,8 @@ package com.fox.tools.collection;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Equator;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,12 +41,12 @@ public class CollectionTools {
                 if (o1.getClass() != o2.getClass()) {
                     return false;
                 }
-                return org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals(o1, o2, exludedFields);
+                return EqualsBuilder.reflectionEquals(o1, o2, exludedFields);
             }
 
             @Override
             public int hash(T o) {
-                return org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode(o, exludedFields);
+                return HashCodeBuilder.reflectionHashCode(o, exludedFields);
             }
         };
         return equator;
