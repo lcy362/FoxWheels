@@ -2,6 +2,7 @@ package com.fox.tools.collection;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Equator;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -69,5 +70,31 @@ public class CollectionTools {
         diff.add(l1More);
         diff.add(l2More);
         return diff;
+    }
+
+    public static void main(String args[]) {
+        Equator<String> equator = new Equator<String>() {
+            @Override
+            public boolean equate(String o1, String o2) {
+                if  (StringUtils.equalsIgnoreCase(o1.replaceAll("_", ""), o2.replaceAll("_", ""))) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            @Override
+            public int hash(String o) {
+                return HashCodeBuilder.reflectionHashCode(o.replaceAll("_", "").toLowerCase());
+            }
+        };
+        List<String> a = new ArrayList<>();
+        List<String> b = new ArrayList<>();
+        a.add("iscat");
+        a.add("ishooman");
+        b.add("is_Cat");
+        b.add("is_Hooman");
+        System.out.println(CollectionUtils.isEqualCollection(a, b, equator));
+
     }
 }
