@@ -12,6 +12,13 @@ public class XmlCommonParser {
         return parseDoc(message, false);
     }
 
+    /**
+     * parse a xml to a map, elements with same name with be seged by ","
+     * @param message
+     * @param simpleKey true: use only attribute name as key; false: joint parent attribute name and own name as key
+     * @return
+     * @throws DocumentException
+     */
     public static Map<String, String> parseDoc(String message, boolean simpleKey) throws DocumentException {
         Map<String, String> result = new HashMap<>();
         Document doc = DocumentHelper.parseText(message);
