@@ -15,3 +15,5 @@ Judge is all elements in two collections the same without implenmenting equals()
 Find difference in two collections.
 ## StringUtils
 Generate random strings.
+## XmlCommonParser
+a common method that parse a xml string to a map
