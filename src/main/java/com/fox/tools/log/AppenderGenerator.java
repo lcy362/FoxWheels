@@ -9,6 +9,14 @@ import org.apache.log4j.PatternLayout;
  * Created by lcy on 2017/6/30.
  */
 public class AppenderGenerator {
+    /**
+     * a code sample, add a kafka appender to a log4j logger
+     * @param logger
+     * @param broker
+     * @param topic
+     * @param layout
+     * @return
+     */
     public static Logger addKafkaAppender(Logger logger, String broker, String topic, String layout) {
         KafkaLog4jAppender kafkaAppender = new KafkaLog4jAppender();
         kafkaAppender.setBrokerList(broker);
